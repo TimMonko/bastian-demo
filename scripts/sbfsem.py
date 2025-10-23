@@ -81,7 +81,9 @@ viewer.grid.stride = 4
 viewer.grid.enabled = True
 
 viewer.dims.ndisplay = 3
-viewer.camera.angles = (-12, 57, 152)
+
+viewer.camera.angles = (-15, 63, 155)
+viewer.camera.perspective = 60
 
 if __name__ == "__main__":
     napari.run()
