@@ -1,6 +1,6 @@
 # /// script
 # dependencies = [
-#   "napari[pyqt6,optional]",
+#   "napari[pyqt5,optional]",
 #   "tifffile",
 # ]
 # ///
@@ -20,7 +20,7 @@ image_004 = data_dir / "004_ROI2_Cropped.tif"
 label_004 = data_dir / "004_ROI2_Cropped_Mito_Labels.tif"
 
 # Downsample factor (1 = no downsampling, 2 = half resolution, etc.)
-downsample = 2
+downsample = 1
 
 # Define datasets to load
 datasets = [

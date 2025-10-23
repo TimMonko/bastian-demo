@@ -1,13 +1,11 @@
 # /// script
 # dependencies = [
-#   "napari[pyqt6,optional]",
+#   "napari[pyqt5,optional]",
 #   "ndevio",
 #   "bioio-czi",
-#   "napari-ndev"
 # ]
 # ///
 
-from tifffile import imread
 import pathlib
 import napari
 import numpy as np
@@ -19,9 +17,10 @@ settings = get_settings()
 settings.application.playback_fps = 1
 
 # read all images in the labels folder and stack them
-data_dir = pathlib.Path(__file__).parent / 'labels'
-label_files = sorted(data_dir.glob('*.tiff'))
-image_file = pathlib.Path(r"C:\Users\timmo\Documents\GitHub\BastianLab\Ferritin_NCOA4-Phalloidin\Raw_Images\2024-08-07 25x 48HIC NCOA4 647 FT 568 PHALL 488 DAPI OBL.czi")
+data_dir = pathlib.Path(__file__).parent / 'neuron-data'
+label_dir = data_dir / 'labels'
+label_files = sorted(label_dir.glob('*.tiff'))
+image_file = data_dir / "2024-08-07 25x 48HIC NCOA4 647 FT 568 PHALL 488 DAPI OBL.czi"
 
 labels = [nImage(f) for f in label_files[:]]
 
@@ -142,7 +141,6 @@ viewer.grid.enabled = True
 viewer.grid.stride = 4
 viewer.scale_bar.visible = True
 viewer.scale_bar.unit = "µm"
-# viewer.window.add_plugin_dock_widget('napari-ndev', 'nDev App')
 
 if __name__ == "__main__":
     napari.run()
